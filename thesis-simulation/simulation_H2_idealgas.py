@@ -3,8 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import mopeds
 import copy
-import pandas as pd
-
 
 def initialize_problem():
     variable_list = mopeds.VariableList()
@@ -75,20 +73,5 @@ if __name__ == "__main__":
     res1.plot(algebraic=True)
     res1.dataframe.to_csv("sim1_results.csv", index=False)
 
-    df1 = pd.read_csv("sim1_results.csv")
-    # Run or load sim2 results
-    df2 = res.dataframe  # assuming you ran another simulation
-
-    # Set time as index if needed
-    df1.index = time_grid
-    df2.index = time_grid
-
-    # Overlay plot
-    plt.plot(df1.index, df1["e0_p"], label="Simulation 1")
-    plt.plot(df2.index, df2["e0_p"], label="Simulation 2", linestyle="--")
-    plt.xlabel("Time [s]")
-    plt.ylabel("Pressure [Pa]")
-    plt.legend()
-    plt.grid(True)
-    plt.title("Overlay of Pressure from Two Simulations")
-    plt.show()
+    # Save data to CSV or pickle
+    res1.dataframe.to_csv("sim1_results.csv", index=False)

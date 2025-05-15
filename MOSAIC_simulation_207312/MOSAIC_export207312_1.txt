@@ -39,7 +39,7 @@ def initialize_problem():  # noqa: C901
     EQ_diff1 = (e0_F_d_in-e0_F_out)  # noqa: E501,E226
 
     EQ_alg2 = (e0_F_d_in-((e0_F_in*((1.0-(e0_p/e0_p_max))))))  # noqa: E501,E226
-    EQ_alg3 = (e0_p-(((e0_n*e0_V)/(e0_R*e0_T))))  # noqa: E501,E226
+    EQ_alg3 = (e0_p-(((e0_n*(e0_R*e0_T))/e0_V)))  # noqa: E501,E226
 
     order_state_var = ["e0_n", ]  # noqa: E501
     order_eqs_diff = {"e0_n": EQ_diff1, }  # noqa: E501
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     var_list, m = initialize_problem()
 
     # Create time-grid. Zero should be first
-    time_grid = np.linspace(10, 1000000000, 40)
+    time_grid = np.linspace(10, 100, 40)
     time_grid = np.insert(time_grid, 0, 0)
 
     # Create simulation Object

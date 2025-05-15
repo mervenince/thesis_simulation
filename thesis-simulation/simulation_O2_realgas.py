@@ -99,7 +99,7 @@ df = res.dataframe
 
 # Plot pressure
 plt.figure()
-plt.plot(df.index, df["e0_p"], label="Pressure (e0_p)")
+plt.plot(df.index, df["e0_p"], label="pressure (e0_p)")
 plt.ylabel("Pressure [Pa]")
 plt.xlabel("Time [s]")
 plt.legend()
@@ -107,22 +107,13 @@ plt.title("Pressure vs. Time")
 plt.grid(True)
 plt.show()
 
-# Plot effective inflow
+# Plot pressure dependent inflow
 plt.figure()
-plt.plot(df.index, df["e0_F_d_in"], label="Effective Inflow (e0_F_d_in)")
+plt.plot(df.index, df["e0_F_d_in"], label="pressure dependent inflow (e0_F_d_in)")
 plt.ylabel("Flow [mol/s]")
 plt.xlabel("Time [s]")
 plt.legend()
-plt.title("Effective Inflow vs. Time")
+plt.title("Prssure Dependent Flow vs. Time")
 plt.grid(True)
 plt.show()
 
-# Plot n (already done but for clarity)
-plt.figure()
-plt.plot(df.index, df["e0_n"], label="Moles (e0_n)")
-plt.ylabel("Amount [mol]")
-plt.xlabel("Time [s]")
-plt.legend()
-plt.title("n vs. Time")
-plt.grid(True)
-plt.show()
